@@ -37,7 +37,6 @@ function start(){
 startQuiz.addEventListener("click", start);
 
 
-
 //Timer code
 
 var statusSpan = document.querySelector("#status");
@@ -185,3 +184,20 @@ stopButton.addEventListener("click", stopTimer);
 // statusToggle.addEventListener("change", toggleStatus);
 inputs.addEventListener("change", setTimePreferences);
 inputs.addEventListener("keyup", setTimePreferences);
+
+
+
+var Questions = { One:"Who, due to her work in building the Analytical Enginge and born in 1815 is considered to be the 1st programer", 
+                 Two:"What famous whistle-blower who shared information on the collection of data related to the Patriot Act currently resides in Russia?",
+                 Three:"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by  John Backus? A. Short Code wrong: auto code, machine code, assembly code",
+                 Four: "When was the first computer game invented? A. 1961?",
+                 Five: "Why did Guido van Rossum name his language 'Python? A. He was reading 'Monty Pythons Flying Circis'",
+                 Six: "What coding language took the US to the moon? A. assembly language and in an interpretive language, in reverse Polish",
+                 Seven: "What language became popular due to its early integration with Netscape Navigator",
+                 Eight: "What general-purpose language, invented by Bjarne Stroutstrup in 1985 and was designed with a bias toward system programming and embedded, resource-constrained software and large systems, with performance, efficiency, and flexibility of use as its design highlights. A. C++ ",
+                 Nine: "What type of software  has  source code is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose. ",
+                 Ten: "What machine was the first operating system, GMOS created for? A. IBM's 701"
+                };
+var Answers = { One: "Ada Lovelace", "Grace Hopper", "Edith Clarke", "Sister Mary Kenneth Keller "
+
+}
