@@ -12,36 +12,41 @@
   </head>
   <body>
     <h1 class="text-center">History of Coding</h1>
+    <hr class="my-4">
+    <br/>
     <br/>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="style.css" />     -->
+    <link rel="stylesheet" href="style.css" />    
 
     
-    <main class="container col-sm-10 col-md-8 col-lg-8 mr-20 ml-2 p-3>">
-      <div class="row">
-        <div class="col-6"></div>
-            <div class="card w-50 m-auto" id="start">
-             <div class="card-body">
-                 <h5 class="card-title">The Quiz of Coding History</h5>
-              <p class="card-text">Click the Start Button to begin!!</p>
-              <a href="#" class="btn btn-primary">Start</a>
-            </div>
-          </div>
-
+    <main class="container col-sm-10 col-md-6 col-lg-6 p-3" >
+        <div class="row">
+           
+                 <div class="card p-3" id="start">
+                      <div class="card-body">
+                      <h2 class="card-title">The Quiz of Coding History</h2>
+                      <p class="card-text">Click the Start Button to begin!!</p>
+                     <a href="#" class="btn btn-primary">Start</a>
+                 </div>
+        </div>
+      
 
 
 
 
         <!-- questions -->
        
-         <div class="col-7"></div>
+        <div class="row">
+            <!-- <div class="col-4"></div> -->
+            <div class="card" id="form">
+                <div class="card-body">
             
-                <form id="form" class="m-auto">
-                    <h5 class="text-justify text-info">Question Question Question</h5>
+                  <form >
+                    <h4 class="m-auto"  id="question" class="text-center text-info"></h4>
                     <hr class="my-4">
                   <section class="form-group">
                     <div class="custom-control custom-radio">
@@ -60,12 +65,14 @@
                         <input type="radio" id="ans04" name="customRadio" class="custom-control-input">
                         <label class="custom-control-label" for="customRadio2">4. Question 4</label>
                       </div>
-      
-                </form>
-        
+                  </form>
+
+                </div>
             </div>
-        </div>  
-      </main> 
+        </div>
+        <!-- end of question -->
+    
+</main> 
 
     </br>
 </br>
@@ -80,7 +87,7 @@
                       <input checked type="checkbox" name="status-toggle" id="status-toggle" />
                       <span class="slider"></span>
                     </label> -->
-                    <div class="status">Status: <span id="status">Working</span></div>
+                    <h3><div class="status">Time <span id="status">Left</span></div></h3>
                     <div class="time">
                       <div class="float-left" id="minutes">25</div>
                       <div id="seconds">00</div>

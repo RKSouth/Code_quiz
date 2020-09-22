@@ -182,15 +182,14 @@ playButton.addEventListener("click", startTimer);
 pauseButton.addEventListener("click", pauseTimer);
 stopButton.addEventListener("click", stopTimer);
 // statusToggle.addEventListener("change", toggleStatus);
-inputs.addEventListener("change", setTimePreferences);
-inputs.addEventListener("keyup", setTimePreferences);
+// inputs.addEventListener("change", setTimePreferences);
+// inputs.addEventListener("keyup", setTimePreferences);
 
 
-
-var Questions = { One:"Who, due to her work in building the Analytical Enginge and born in 1815 is considered to be the 1st programer", 
-                 Two:"What famous whistle-blower who shared information on the collection of data related to the Patriot Act currently resides in Russia?",
-                 Three:"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by  John Backus? A. Short Code wrong: auto code, machine code, assembly code",
-                 Four: "When was the first computer game invented? A. 1961?",
+var Questions = { "One":"Who, due to her work in building the Analytical Enginge and born in 1815 is considered to be the 1st programer?", 
+                 "Two":"What famous whistle-blower who shared information on the collection of data related to the Patriot Act currently resides in Russia?",
+                 "Three":"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by  John Backus? A. Short Code wrong: auto code, machine code, assembly code",
+                 "Four": "When was the first computer game invented? A. 1961?",
                  Five: "Why did Guido van Rossum name his language 'Python? A. He was reading 'Monty Pythons Flying Circis'",
                  Six: "What coding language took the US to the moon? A. assembly language and in an interpretive language, in reverse Polish",
                  Seven: "What language became popular due to its early integration with Netscape Navigator",
@@ -198,6 +197,28 @@ var Questions = { One:"Who, due to her work in building the Analytical Enginge a
                  Nine: "What type of software  has  source code is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose. ",
                  Ten: "What machine was the first operating system, GMOS created for? A. IBM's 701"
                 };
-var Answers = { One: "Ada Lovelace", "Grace Hopper", "Edith Clarke", "Sister Mary Kenneth Keller "
 
-}
+ var questionText = document.querySelector("h4");
+    // questionText.value = Questions["One"];
+// document.getElementById("question").value = Questions[One];
+// }
+questionText.textContent = Questions.One;
+// for(i=0; i <Questions.length; i++){
+// if(button pushed=== Answers[0]){
+//     move to next question
+//switchQuestions();
+     
+
+
+// } else {
+//     subtract time then move to next question
+// switchQuestions();
+// }
+// }
+function switchQuestions () {
+    var i =0;
+    Questions[i]; i++
+};
+
+//Answers
+var Answers = { One: ["Ada Lovelace", "Grace Hopper", "Edith Clarke", "Sister Mary Kenneth Keller"]}
