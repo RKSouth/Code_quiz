@@ -186,8 +186,8 @@ stopButton.addEventListener("click", stopTimer);
 // inputs.addEventListener("keyup", setTimePreferences);
 
 
-var Questions = { "One":"Who, due to her work in building the Analytical Enginge and born in 1815 is considered to be the 1st programer?", 
-                 "Two":"What famous whistle-blower who shared information on the collection of data related to the Patriot Act currently resides in Russia?",
+var Questions = { "One":"Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
+                 "Two":"What famous whistle-blower who shared information on the collection of data in the U.S. related to the Patriot Act currently resides in Russia?",
                  "Three":"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by  John Backus? A. Short Code wrong: auto code, machine code, assembly code",
                  "Four": "When was the first computer game invented? A. 1961?",
                  Five: "Why did Guido van Rossum name his language 'Python? A. He was reading 'Monty Pythons Flying Circis'",
@@ -198,12 +198,16 @@ var Questions = { "One":"Who, due to her work in building the Analytical Enginge
                  Ten: "What machine was the first operating system, GMOS created for? A. IBM's 701"
                 };
 
+
+
  var questionText = document.querySelector("h4");
     // questionText.value = Questions["One"];
 // document.getElementById("question").value = Questions[One];
 // }
 questionText.textContent = Questions.One;
-// for(i=0; i <Questions.length; i++){
+//was told not use a for loop use a function
+
+// for(i=0; i < Questions.length; i++){
 // if(button pushed=== Answers[0]){
 //     move to next question
 //switchQuestions();
@@ -221,4 +225,40 @@ function switchQuestions () {
 };
 
 //Answers
-var Answers = { One: ["Ada Lovelace", "Grace Hopper", "Edith Clarke", "Sister Mary Kenneth Keller"]}
+
+                // var displayStart = document.getElementById("form","question");
+                // var startQuiz = document.getElementById("start");
+                
+                // displayStart.style.display ="none";
+                
+                // function start(){
+                //     displayStart.style.display="block";
+                //     startQuiz.style.display="none";
+                //     startTimer();
+                // }
+                
+                
+                // startQuiz.addEventListener("click", start);
+var answerButton = document.querySelector("b");
+function selectAnswer() {
+    console.log("answer button working");
+}
+answerButton.addEventListener("click", selectAnswer);
+//object of answers
+var Answers = { "One": ["Ada Lovelace", "Grace Hopper", "Edith Clarke", "Sister Mary Kenneth Keller"],
+                Two: [],
+                Three: [],
+                Four: [],
+                Five: [],
+                Six: [],
+                Seven: [],
+                Eight: [],                
+                Nine:[],
+                Ten:[],
+}
+
+//edit the question text
+var Answer01Text = document.querySelector("b");
+Answer01Text.textContent = Answers.One[0];
+
+// store
