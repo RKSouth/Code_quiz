@@ -124,11 +124,11 @@ function pauseTimer() {
 /* This function stops the interval and also resets secondsElapsed
    and calls "setTime()" which effectively reset the timer
    to the input selections workMinutesInput.value and restMinutesInput.value */
-function stopTimer() {
-  secondsElapsed = 0;
-  setTime();
-  renderTime();
-}
+// function stopTimer() {
+//   secondsElapsed = 0;
+//   setTime();
+//   renderTime();
+// }
 /* Our timer is fancy enough to handle 2 different settings at once this toggle
    function basically just specifies which of our 2 timer settings to use. */
 function toggleStatus(event) {
@@ -167,7 +167,7 @@ function setTimePreferences() {
 }
 playButton.addEventListener("click", startTimer);
 pauseButton.addEventListener("click", pauseTimer);
-stopButton.addEventListener("click", stopTimer);
+// stopButton.addEventListener("click", stopTimer);
 // statusToggle.addEventListener("change", toggleStatus);
 // inputs.addEventListener("change", setTimePreferences);
 // inputs.addEventListener("keyup", setTimePreferences);
@@ -284,7 +284,7 @@ var Questions = [
 {
     text:"What machine was the first operating system, GMOS created for? A. IBM's 701", 
     Answers:[
-                {text:"GM's Analytical Mathematic Chromatic x2",truthiness:false}, //Questions[9].Answers[0].text;
+                {text:"GM's Analytical Mathematic Chromatic x2",truthiness:false}, //Questions[10].Answers[0].text;
                 {text:"IBM's 702",truthiness:false}, 
                 {text:"IMB's 701",truthiness:true}, 
                 {text:"Macy's Exothermic Monster",truthiness:false}
@@ -343,14 +343,19 @@ function selectAnswer04() {
     activeAnswer = 3;
     checkTruth();
 }
-
-//check truth and load next question
+// getting my finished card for checkTruth function
+var endQuiz = document.getElementById("end");
+//check trenduth and load next question
 function checkTruth(){
     console.log("answer button working");
     console.log(Questions[activeQuest].Answers[activeAnswer].truthiness); //to see if answer is true or false
     //Questions[activeQuest]  to see what question we are on .Answers[activeAnswer] to see what answer 
     // having validated the user answer choice we now move to the next activeQuest
     activeQuest += 1;
+    //to break chain after last 
+    if (activeQuest == Questions.length) {  
+        displayStart.style.display="none";
+        endQuiz.style.display="inline";} 
     PreguntesLoops();// loads the next question
 }
 
@@ -376,7 +381,7 @@ var displayStart = document.getElementById("form","question"); //form for questi
 var startQuiz = document.getElementById("start"); //the start card
 
 displayStart.style.display ="none";
-
+endQuiz.style.display="none"
 //main start button
 //move later?
 function start(){
@@ -384,13 +389,14 @@ function start(){
     startQuiz.style.display="none";
     startTimer();
     PreguntesLoops();
+    
 }
 
 
 startQuiz.addEventListener("click", start);
 //questions loop
 function PreguntesLoops(){
-     if( 10<= Questions.length){activeQuest=0} //commented out for now - will be used to handle resets
+    if(activeQuest == Questions.length){activeQuest=0} //commented out for now - will be used to handle resets
     questionText.textContent = Questions[activeQuest].text;
     //answers loop display
     for(i=0; i < Questions[activeQuest].Answers.length; i++){             
