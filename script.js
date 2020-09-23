@@ -176,6 +176,19 @@ stopButton.addEventListener("click", stopTimer);
 
 
 //begin of questions objects
+
+// { "One":"Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
+//                  "Two":"What famous whistle-blower who shared information on the collection of data in the U.S. related to the Patriot Act currently resides in Russia?",
+//                  "Three":"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by  John Backus? A. Short Code wrong: auto code, machine code, assembly code",
+//                  "Four": "When was the first computer game invented? A. 1961?",
+//                  Five: "Why did Guido van Rossum name his language 'Python? A. He was reading 'Monty Pythons Flying Circis'",
+//                  Six: "What coding language took the US to the moon? A. assembly language and in an interpretive language, in reverse Polish",
+//                  Seven: "What language became popular due to its early integration with Netscape Navigator",
+//                  Eight: "What general-purpose language, invented by Bjarne Stroutstrup in 1985 and was designed with a bias toward system programming and embedded, resource-constrained software and large systems, with performance, efficiency, and flexibility of use as its design highlights. A. C++ ",
+//                  Nine: "What type of software  has  source code is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose. ",
+//                  Ten: "What machine was the first operating system, GMOS created for? A. IBM's 701"
+//                 };
+
 var Questions = [
     {
         text:"Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
@@ -210,19 +223,40 @@ var Questions = [
 // };
 
 //RENAME VARIABLES TO SOMETHING EASIER
-var answerButton = document.querySelector("#q");
-var answerButtonr = document.querySelector("#r");
-var answerButtons = document.querySelector("#s");
-var answerButtont = document.querySelector("#t");
-function selectAnswer01() {
+var answerButton = [document.querySelector("#q"),
+                    document.querySelector("#r"),
+                    document.querySelector("#s"),
+                    document.querySelector("#t")
+];
+
+
+activeAnswer = 0;
+//when button is pushed
+function selectAnswer01() { 
+    activeAnswer = 0;
+    checkTruth();}
+function selectAnswer02() { 
+    activeAnswer = 1;
+    checkTruth();}
+function selectAnswer03() { 
+    activeAnswer = 2;
+    checkTruth();}
+function selectAnswer04() { 
+    activeAnswer = 3;
+    checkTruth();}
+
+//check truth and load next question
+function checkTruth(){
     console.log("answer button working");
-    console.log(Questions[activeQuest].Answers[0].truthiness)
-    PreguntesLoops();
+    console.log(Questions[activeQuest].Answers[activeAnswer].truthiness); //to see if answer is true or false
+    //Questions[activeQuest]  to see what question we are on .Answers[activeAnswer] to see what answer 
+    PreguntesLoops();// loads the next question
 }
-answerButton.addEventListener("click", selectAnswer01);
-// answerButtonr.addEventListener("click", selectAnswer02);
-// answerButtons.addEventListener("click", selectAnswer03);
-// answerButtont.addEventListener("click", selectAnswer04);
+
+answerButton[0].addEventListener("click", selectAnswer01);
+answerButton[1].addEventListener("click", selectAnswer02);
+answerButton[2].addEventListener("click", selectAnswer03);
+answerButton[3].addEventListener("click", selectAnswer04);
 
 
 
