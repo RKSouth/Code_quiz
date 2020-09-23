@@ -363,26 +363,54 @@ function checkTruth(){
     //to break chain after last question
     if (activeQuest == Questions.length || secondsElapsed >= 75) {  
         displayStart.style.display="none";
-        endQuiz.style.display="inline"; 
         hideTimer.style.display ="none";// stopTimer();
         console.log(75-secondsElapsed);
-        countScore();
+        timesUp();
     }; 
     var finalScore = score + (75-secondsElapsed);
-        console.log(finalScore);
+       
         
 
     PreguntesLoops();// loads the next question
 }
-
+var finalScore = score + (75-secondsElapsed); 
 score = 0;
+//getting the high scores element
+var HighScores = document.getElementById("HighScores");
+//hiding the high scores element until it's time
+HighScores.style.display="none";
 
-var againQuiz = document.getElementById("end")
+function timesUp() {
+
+   
+    HighScores.style.display="inline";
+    console.log(finalScore);
+    //getting the input field
+    var initials =document.getElementById("submit");
+    //when the submit button is clicked on the high scores page
+initials.addEventListener("click", function() {
+        //moving/hiding cards
+        endQuiz.style.display="inline";
+        HighScores.style.display="none";
+     });
+}
+
+
+function initials () { 
+    var initials =document.getElementById("scoreInput");
+    initials.addEventListener("click", countScore);
+if (initials != null) {document.getElementById("scoreInput").textContent= "Your Score is: " + (score +(75-secondsElapsed)); } else{
+    
+     
+}};
+//score holding object
+var scoreList = {
+    initials:finalScore
+}
+    localStorage.setItem("initials", finalScore);
+    console.log(localStorage);
 function countScore(){
-    var initials =prompt("Enter you initials to get high score!");
-    if (initials != null) {document.getElementById("h6".innerHTML = "Your Score is: " + (score +(75-secondsElapsed)))} else{
-        HighScores.style.display="inline";
-    }
+    endQuiz.style.display="inline";
 };
 
 answerButton[0].addEventListener("click", selectAnswer01);
