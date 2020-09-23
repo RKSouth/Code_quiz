@@ -394,12 +394,13 @@ function timesUp() {
     // initials = document.getElementById("initialInput");
 
     const initialInput = document.getElementById("initialInput");
-    const inpfinalScore = document.getElementById("inpfinalScore"); 
-    const lsOutput = document.getElementById("submit");
+    
+    const lsOutput = document.getElementById("lsOutput");
     //when the submit button is clicked on the high scores
+    //WHEN i hit submit I don't want it to go to start button automatically, I want it to go to high scores
 submit.addEventListener("click", function(event) {
     //moving/hiding cards
-    event.preventDefault();
+    // event.preventDefault();
     endQuiz.style.display="inline";
     HighScores.style.display="none";
     const key = initialInput.value;
@@ -409,28 +410,11 @@ submit.addEventListener("click", function(event) {
 
     if (key && value) {
         localStorage.setItem(key, value);
-        location.reload();
+        // location.reload();
     }
 
 
-
-    //score holding object
-
-//     var scoreList = {
-//     initials:finalScore
-// };
-
-//     var scoreList_serialized = JSON.stringify(scoreList);
-//     // console.log(scoreList_serialized);
-
-//     localStorage.setItem("scoreList", scoreList_serialized);
-//     // console.log(localStorage);
-//     var scoreList_deserialized = JSON.parse(localStorage.getItem("scoreList"));
-//     console.log(scoreList_deserialized);
-
-
-     });
-     for (let i =0; i< localStorage.length; i++); {
+    for (let i =0; i< localStorage.length; i++); {
         // creating a list
     var li = document.createElement("li");
     li.textContent = key +": "+ finalScore;
@@ -439,11 +423,12 @@ submit.addEventListener("click", function(event) {
 
 
 
-         var key =localStorage.key(i);
-         var value = localStorage.getItem(key);
+         var keyAgain =localStorage.key(i);
+         var valueAgain = localStorage.getItem(key);
         //  lsOutput.innerHTML += ${key}: ${value}<br />; 
          lsOutput.appendChild(li);
      };
+     });
     }
 
 
