@@ -174,19 +174,6 @@ pauseButton.addEventListener("click", pauseTimer);
 //end of timer
 
 
-//begin of questions objects
-
-// { "One":"Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
-//                  "Two":"What famous whistle-blower who shared information on the collection of data in the U.S. related to the Patriot Act currently resides in Russia?",
-//                  "Three":"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by  John Backus? A. Short Code wrong: auto code, machine code, assembly code",
-//                  "Four": "When was the first computer game invented? A. 1961?",
-//                  Five: "Why did Guido van Rossum name his language 'Python? A. He was reading 'Monty Pythons Flying Circis'",
-//                  Six: "What coding language took the US to the moon? A. assembly language and in an interpretive language, in reverse Polish",
-//                  Seven: "What language became popular due to its early integration with Netscape Navigator",
-//                  Eight: "What general-purpose language, invented by Bjarne Stroutstrup in 1985 and was designed with a bias toward system programming and embedded, resource-constrained software and large systems, with performance, efficiency, and flexibility of use as its design highlights. A. C++ ",
-//                  Nine: "What type of software  has  source code is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose. ",
-//                  Ten: "What machine was the first operating system, GMOS created for? A. IBM's 701"
-//                 };
 
 var Questions = [
     //first question
@@ -281,7 +268,7 @@ var Questions = [
 },
 //tenth question
 {
-    text:"10. What machine was the first operating system, GMOS created for? A. IBM's 701", 
+    text:"10. What machine was the first operating system, GMOS created for?", 
     Answers:[
                 {text:"GM's Analytical Mathematic Chromatic x2",truthiness:false}, //Questions[10].Answers[0].text;
                 {text:"IBM's 702",truthiness:false}, 
@@ -399,8 +386,9 @@ function timesUp() {
     //when the submit button is clicked on the high scores
     //WHEN i hit submit I don't want it to go to start button automatically, I want it to go to high scores
 submit.addEventListener("click", function(event) {
+
     //moving/hiding cards
-    // event.preventDefault();
+ 
     endQuiz.style.display="inline";
     HighScores.style.display="none";
     const key = initialInput.value;
@@ -408,26 +396,25 @@ submit.addEventListener("click", function(event) {
     console.log(key);
     console.log(value);
 
-    if (key && value) {
-        localStorage.setItem(key, value);
-        // location.reload();
-    }
-
-
-    for (let i =0; i< localStorage.length; i++); {
+  
         // creating a list
     var li = document.createElement("li");
-    li.textContent = keyAgain +": "+ valueAgain;
+    li.textContent = key+": "+ finalScore;
     li.setAttribute("data-index", key);
     console.log(li.textContent);
+    lsOutput.appendChild(li);
 
+    toLoad = {name:key, value:value}
+    var scoreArray =[];
+    
+    scoreArray.push(toLoad);
+    championScore = Math.max(scoreArray);
+    console.log(championScore);
 
-
-         var keyAgain =localStorage.key(i);
-         var valueAgain = localStorage.getItem(key);
-        //  lsOutput.innerHTML += ${key}: ${value}<br />; 
-         lsOutput.appendChild(li);
-     };
+    // finalScore.append(scoreArray);
+    // championScore = Math.max(scoreArray);
+    // console.log(championScore);
+      
      });
     }
 
