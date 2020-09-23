@@ -172,103 +172,15 @@ stopButton.addEventListener("click", stopTimer);
 // inputs.addEventListener("change", setTimePreferences);
 // inputs.addEventListener("keyup", setTimePreferences);
 
-
-// var Questions = { "One":"Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
-//                  "Two":"What famous whistle-blower who shared information on the collection of data in the U.S. related to the Patriot Act currently resides in Russia?",
-//                  "Three":"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by  John Backus? A. Short Code wrong: auto code, machine code, assembly code",
-//                  "Four": "When was the first computer game invented? A. 1961?",
-//                  Five: "Why did Guido van Rossum name his language 'Python? A. He was reading 'Monty Pythons Flying Circis'",
-//                  Six: "What coding language took the US to the moon? A. assembly language and in an interpretive language, in reverse Polish",
-//                  Seven: "What language became popular due to its early integration with Netscape Navigator",
-//                  Eight: "What general-purpose language, invented by Bjarne Stroutstrup in 1985 and was designed with a bias toward system programming and embedded, resource-constrained software and large systems, with performance, efficiency, and flexibility of use as its design highlights. A. C++ ",
-//                  Nine: "What type of software  has  source code is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose. ",
-//                  Ten: "What machine was the first operating system, GMOS created for? A. IBM's 701"
-//                 };
+//end of timer
 
 
-
-//  var questionText = document.querySelector("h4");
-//     // questionText.value = Questions["One"];
-// // document.getElementById("question").value = Questions[One];
-// // }
-// questionText.textContent = Questions.One;
-// //was told not use a for loop use a function
-
-// // for(i=0; i < Questions.length; i++){
-// // if(button pushed=== Answers[0]){
-// //     move to next question
-// //switchQuestions();
-     
-
-
-// // } else {
-// //     subtract time then move to next question
-// // switchQuestions();
-// // }
-// // }
-// function switchQuestions () {
-//     var i =0;
-//     Questions[i]; i++
-// };
-
-// //Answers
-
-//                 // var displayStart = document.getElementById("form","question");
-//                 // var startQuiz = document.getElementById("start");
-                
-//                 // displayStart.style.display ="none";
-                
-//                 // function start(){
-//                 //     displayStart.style.display="block";
-//                 //     startQuiz.style.display="none";
-//                 //     startTimer();
-//                 // }
-                
-                
-//                 // startQuiz.addEventListener("click", start);
-// var answerButton = document.querySelector("#q");
-// var answerButtonr = document.querySelector("#r");
-// var answerButtons = document.querySelector("#s");
-// var answerButtont = document.querySelector("#t");
-// function selectAnswer() {
-//     console.log("answer button working");
-// }
-// answerButton.addEventListener("click", selectAnswer);
-// answerButtonr.addEventListener("click", selectAnswer);
-// answerButtons.addEventListener("click", selectAnswer);
-// answerButtont.addEventListener("click", selectAnswer);
-// //object of answers
-// var Answers = { "One": ["Ada Lovelace", "Grace Hopper", "Edith Clarke", "Sister Mary Kenneth Keller"],
-//                 Two: [],
-//                 Three: [],
-//                 Four: [],
-//                 Five: [],
-//                 Six: [],
-//                 Seven: [],
-//                 Eight: [],                
-//                 Nine:[],
-//                 Ten:[],
-// }
-
-
-// var Questions = { One:["Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?"], 
-//                     "Answers":[{"Ada Lovelace":true}, {"Grace Hopper": false}, {"Edith Clarke":false}, {"Sister Mary Kenneth Keller": false}],
-//                  "Two":"What famous whistle-blower who shared information on the collection of data in the U.S. related to the Patriot Act currently resides in Russia?",
-//                  "Three":"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by  John Backus? A. Short Code wrong: auto code, machine code, assembly code",
-//                  "Four": "When was the first computer game invented? A. 1961?",
-//                  Five: "Why did Guido van Rossum name his language 'Python? A. He was reading 'Monty Pythons Flying Circis'",
-//                  Six: "What coding language took the US to the moon? A. assembly language and in an interpretive language, in reverse Polish",
-//                  Seven: "What language became popular due to its early integration with Netscape Navigator",
-//                  Eight: "What general-purpose language, invented by Bjarne Stroutstrup in 1985 and was designed with a bias toward system programming and embedded, resource-constrained software and large systems, with performance, efficiency, and flexibility of use as its design highlights. A. C++ ",
-//                  Nine: "What type of software  has  source code is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose. ",
-//                  Ten: "What machine was the first operating system, GMOS created for? A. IBM's 701"
-//                 };
-
+//begin of questions objects
 var Questions = [
     {
         text:"Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
         Answers:[
-                    {text:"Ada Lovelace",truthiness:true}, 
+                    {text:"Ada Lovelace",truthiness:true}, //Questions[0].Answers[0].text;
                     {text:"Grace Hopper",truthiness:false}, 
                     {text:"Edith Clarke",truthiness:false}, 
                     {text:"Sister Mary Kenneth Keller",truthiness:false}
@@ -297,21 +209,7 @@ var Questions = [
 //     Questions[i]; i++
 // };
 
-//Answers
 
-                // var displayStart = document.getElementById("form","question");
-                // var startQuiz = document.getElementById("start");
-                
-                // displayStart.style.display ="none";
-                
-                // function start(){
-                //     displayStart.style.display="block";
-                //     startQuiz.style.display="none";
-                //     startTimer();
-                // }
-                
-                
-                // startQuiz.addEventListener("click", start);
 var answerButton = document.querySelector("#q");
 var answerButtonr = document.querySelector("#r");
 var answerButtons = document.querySelector("#s");
@@ -323,23 +221,12 @@ answerButton.addEventListener("click", selectAnswer);
 answerButtonr.addEventListener("click", selectAnswer);
 answerButtons.addEventListener("click", selectAnswer);
 answerButtont.addEventListener("click", selectAnswer);
-//object of answers
-// var Answers = { "One": ["Ada Lovelace", "Grace Hopper", "Edith Clarke", "Sister Mary Kenneth Keller"],
-//                 Two: [],
-//                 Three: [],
-//                 Four: [],
-//                 Five: [],
-//                 Six: [],
-//                 Seven: [],
-//                 Eight: [],                
-//                 Nine:[],
-//                 Ten:[],
-// }
+
 
 
 
 //edit the answer text
-var AnswerText = [ document.querySelector("#q"),
+var AnswerText = [ document.querySelector("#q"),// AnswerText[0]
                     document.querySelector("#r"),
                     document.querySelector("#s"),
                     document.querySelector("#t")
@@ -348,29 +235,31 @@ var AnswerText = [ document.querySelector("#q"),
 var questionText = document.querySelector("h4");
 
 
-var displayStart = document.getElementById("form","question");
-var startQuiz = document.getElementById("start");
+var displayStart = document.getElementById("form","question"); //form for questions in html
+var startQuiz = document.getElementById("start"); //the start card
 
 displayStart.style.display ="none";
 
-//Main Quiz Run
+//main start button
+//move later?
 function start(){
     displayStart.style.display="block";
     startQuiz.style.display="none";
     startTimer();
+    PreguntesLoops();
 }
 
 
 startQuiz.addEventListener("click", start);
 //questions loop
-for(j=0; j < Questions.length,j++) 
-    {
+function PreguntesLoops{
+    for(j=0; j < Questions.length,j++){
         questionText.textContent = Questions[j].text;
-        //answers loop
-        for(i=0; i < Questions[0].Answers.length; i++)
-            {             
-                AnswerText[i].textContent = Questions[0].Answers[i].text;
-            }
+        //answers loop display
+        for(i=0; i < Questions[j].Answers.length; i++){             
+            AnswerText[i].textContent = Questions[j].Answers[i].text;
+        }
+        
     }
-
+}
 // 
