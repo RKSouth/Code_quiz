@@ -417,7 +417,7 @@ submit.addEventListener("click", function(event) {
     for (let i =0; i< localStorage.length; i++); {
         // creating a list
     var li = document.createElement("li");
-    li.textContent = key +": "+ finalScore;
+    li.textContent = keyAgain +": "+ valueAgain;
     li.setAttribute("data-index", key);
     console.log(li.textContent);
 
