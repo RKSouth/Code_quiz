@@ -191,7 +191,7 @@ pauseButton.addEventListener("click", pauseTimer);
 var Questions = [
     //first question
     {
-        text:"Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
+        text:"1. Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
         Answers:[
                     {text:"Ada Lovelace",truthiness:true}, //Questions[0].Answers[0].text;
                     {text:"Grace Hopper",truthiness:false}, 
@@ -201,7 +201,7 @@ var Questions = [
    },
    //second question
    {
-    text:"What famous whistle-blower who shared information on the collection of data in the U.S. related to the Patriot Act currently resides in Russia?", 
+    text:"2. What famous whistle-blower who shared information on the collection of data in the U.S. related to the Patriot Act currently resides in Russia?", 
     Answers:[
                 {text:"Aaron Swartz",truthiness:false}, //Questions[1].Answers[0].text;
                 {text:"Julian Assange",truthiness:false}, 
@@ -211,7 +211,7 @@ var Questions = [
 },
 //third question
 {
-    text:"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by John Backus?", 
+    text:"3. What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by John Backus?", 
     Answers:[
                 {text:"Auto Code",truthiness:false}, //Questions[2].Answers[0].text;  A. Short Code wrong: auto code, machine code, assembly code
                 {text:"Short Code",truthiness:true}, 
@@ -221,7 +221,7 @@ var Questions = [
 },
 //fourth question
 {
-    text:"When was the first computer game invented?", 
+    text:"4. When was the first computer game invented?", 
     Answers:[
                 {text:"1955",truthiness:false}, //Questions[3].Answers[0].text;
                 {text:"1975",truthiness:false}, 
@@ -231,7 +231,7 @@ var Questions = [
 },
  //fifth question
  {
-    text:"Why did Guido van Rossum name his language 'Python?", 
+    text:"5. Why did Guido van Rossum name his language 'Python?", 
     Answers:[
                 {text:"He was reading 'Monty Pythons Flying Circis'",truthiness:true}, //Questions[4].Answers[0].text;
                 {text:"He was a snake enthusiast and that was his favorite kind of snake",truthiness:false}, 
@@ -241,7 +241,7 @@ var Questions = [
 },
 //sixth question
 {
-    text:"What coding language took the US to the moon?", 
+    text:"6. What coding language took the US to the moon?", 
     Answers:[
                 {text:"assembly language and in an interpretive language, in reverse Polish",truthiness:true}, //Questions[5].Answers[0].text;
                 {text:"short code, in reverse ebonics",truthiness:false}, 
@@ -251,7 +251,7 @@ var Questions = [
 },
 //seventh question
 {
-    text:"What language became popular due to its early integration with Netscape Navigator?", 
+    text:"7. What language became popular due to its early integration with Netscape Navigator?", 
     Answers:[
                 {text:"C++",truthiness:false}, //Questions[6].Answers[0].text;
                 {text:"Https",truthiness:false}, 
@@ -261,7 +261,7 @@ var Questions = [
 },
 //eigth question
 {
-    text:"What type of software  has  source code is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose?", 
+    text:"8. What type of software  has  source code is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose?", 
     Answers:[
                 {text:"MS DOS",truthiness:true}, //Questions[7].Answers[0].text;
                 {text:"Release source",truthiness:false}, 
@@ -271,7 +271,7 @@ var Questions = [
 },
 //ninth question
 {
-    text:"What general-purpose language, invented by Bjarne Stroutstrup in 1985 and was designed with a bias toward system programming and embedded, resource-constrained software and large systems, with performance, efficiency, and flexibility of use as its design highlights?", 
+    text:"9. What general-purpose language, invented by Bjarne Stroutstrup in 1985 and was designed with a bias toward system programming and embedded, resource-constrained software and large systems, with performance, efficiency, and flexibility of use as its design highlights?", 
     Answers:[
                 {text:"C++",truthiness:true}, //Questions[8].Answers[0].text;
                 {text:"COBAL",truthiness:false}, 
@@ -281,7 +281,7 @@ var Questions = [
 },
 //tenth question
 {
-    text:"What machine was the first operating system, GMOS created for? A. IBM's 701", 
+    text:"10. What machine was the first operating system, GMOS created for? A. IBM's 701", 
     Answers:[
                 {text:"GM's Analytical Mathematic Chromatic x2",truthiness:false}, //Questions[10].Answers[0].text;
                 {text:"IBM's 702",truthiness:false}, 
@@ -345,36 +345,38 @@ function selectAnswer04() {
 // getting my finished card for checkTruth function
 var endQuiz = document.getElementById("end");
 //check trenduth and load next question
-score = 0;
+var score;
 
 function checkTruth(){
     console.log("answer button working");
-
+//correct answer
     if(Questions[activeQuest].Answers[activeAnswer].truthiness==true){
      score= score + 1;
     }else {
+//wrong answer
         secondsElapsed= secondsElapsed+5;
-        console.log(secondsElapsed);
+        console.log("secondes elapsed " +secondsElapsed);
     }
     console.log(Questions[activeQuest].Answers[activeAnswer].truthiness); //to see if answer is true or false
     //Questions[activeQuest]  to see what question we are on .Answers[activeAnswer] to see what answer 
     // having validated the user answer choice we now move to the next activeQuest
     activeQuest += 1;
     //to break chain after last question
-    if (activeQuest == Questions.length || secondsElapsed >= 75) {  
+    if (activeQuest == Questions.length || secondsElapsed === 75) {  
         displayStart.style.display="none";
-        hideTimer.style.display ="none";// stopTimer();
-        console.log(75-secondsElapsed);
+        hideTimer.style.display ="none";
+        stopTimer();
+        console.log( 75-secondsElapsed);
+        console.log("score: " + score);
         timesUp();
     }; 
-    var finalScore = score + (75-secondsElapsed);
+   
        
         
 
     PreguntesLoops();// loads the next question
 }
-var finalScore = score + (75-secondsElapsed); 
-score = 0;
+var finalScore; 
 //getting the high scores element
 var HighScores = document.getElementById("HighScores");
 //hiding the high scores element until it's time
@@ -382,33 +384,77 @@ HighScores.style.display="none";
 
 function timesUp() {
 
-   
+
+   finalScore =score + (75-secondsElapsed);
     HighScores.style.display="inline";
     console.log(finalScore);
+
     //getting the input field
-    var initials =document.getElementById("submit");
-    //when the submit button is clicked on the high scores page
-initials.addEventListener("click", function() {
-        //moving/hiding cards
-        endQuiz.style.display="inline";
-        HighScores.style.display="none";
+    var submit =document.getElementById("submit");
+    // initials = document.getElementById("initialInput");
+
+    const initialInput = document.getElementById("initialInput");
+    const inpfinalScore = document.getElementById("inpfinalScore"); 
+    const lsOutput = document.getElementById("submit");
+    //when the submit button is clicked on the high scores
+submit.addEventListener("click", function(event) {
+    //moving/hiding cards
+    event.preventDefault();
+    endQuiz.style.display="inline";
+    HighScores.style.display="none";
+    const key = initialInput.value;
+    const value = finalScore;
+    console.log(key);
+    console.log(value);
+
+    if (key && value) {
+        localStorage.setItem(key, value);
+        location.reload();
+    }
+
+
+
+    //score holding object
+
+//     var scoreList = {
+//     initials:finalScore
+// };
+
+//     var scoreList_serialized = JSON.stringify(scoreList);
+//     // console.log(scoreList_serialized);
+
+//     localStorage.setItem("scoreList", scoreList_serialized);
+//     // console.log(localStorage);
+//     var scoreList_deserialized = JSON.parse(localStorage.getItem("scoreList"));
+//     console.log(scoreList_deserialized);
+
+
      });
-}
+     for (let i =0; i< localStorage.length; i++); {
+        // creating a list
+    var li = document.createElement("li");
+    li.textContent = key +": "+ finalScore;
+    li.setAttribute("data-index", key);
+    console.log(li.textContent);
 
 
-function initials () { 
-    var initials =document.getElementById("scoreInput");
-    initials.addEventListener("click", countScore);
-if (initials != null) {document.getElementById("scoreInput").textContent= "Your Score is: " + (score +(75-secondsElapsed)); } else{
+
+         var key =localStorage.key(i);
+         var value = localStorage.getItem(key);
+        //  lsOutput.innerHTML += ${key}: ${value}<br />; 
+         lsOutput.appendChild(li);
+     };
+    }
+
+
+// function initials () { 
+//     var initials =document.getElementById("scoreInput");
+//     initials.addEventListener("click", countScore);
+// if (initials != null) {document.getElementById("scoreInput").textContent= "Your Score is: " + (score +(75-secondsElapsed)); } else{
     
      
-}};
-//score holding object
-var scoreList = {
-    initials:finalScore
-}
-    localStorage.setItem("initials", finalScore);
-    console.log(localStorage);
+// }};
+
 function countScore(){
     endQuiz.style.display="inline";
 };
@@ -447,6 +493,7 @@ function start(){
     displayStart.style.display="block";
     startQuiz.style.display="none";
     hideTimer.style.display ="inline";
+    setTime();
     startTimer();
     PreguntesLoops();
     score =0;
