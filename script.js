@@ -209,18 +209,20 @@ var Questions = [
 //     Questions[i]; i++
 // };
 
-
+//RENAME VARIABLES TO SOMETHING EASIER
 var answerButton = document.querySelector("#q");
 var answerButtonr = document.querySelector("#r");
 var answerButtons = document.querySelector("#s");
 var answerButtont = document.querySelector("#t");
-function selectAnswer() {
+function selectAnswer01() {
     console.log("answer button working");
+    console.log(Questions[activeQuest].Answers[0].truthiness)
+    PreguntesLoops();
 }
-answerButton.addEventListener("click", selectAnswer);
-answerButtonr.addEventListener("click", selectAnswer);
-answerButtons.addEventListener("click", selectAnswer);
-answerButtont.addEventListener("click", selectAnswer);
+answerButton.addEventListener("click", selectAnswer01);
+// answerButtonr.addEventListener("click", selectAnswer02);
+// answerButtons.addEventListener("click", selectAnswer03);
+// answerButtont.addEventListener("click", selectAnswer04);
 
 
 
@@ -252,14 +254,17 @@ function start(){
 
 startQuiz.addEventListener("click", start);
 //questions loop
-function PreguntesLoops{
-    for(j=0; j < Questions.length,j++){
-        questionText.textContent = Questions[j].text;
-        //answers loop display
-        for(i=0; i < Questions[j].Answers.length; i++){             
-            AnswerText[i].textContent = Questions[j].Answers[i].text;
-        }
-        
+var activeQuest = 0;
+function PreguntesLoops(){
+    // if(activeQuest = Questions.length){activeQuest=0} //commented out for now - will be used to handle resets
+    questionText.textContent = Questions[activeQuest].text;
+    //answers loop display
+    for(i=0; i < Questions[activeQuest].Answers.length; i++){             
+        AnswerText[i].textContent = Questions[activeQuest].Answers[i].text;
     }
+    activeQuest += 1;
 }
+
+
+
 // 
