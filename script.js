@@ -190,6 +190,7 @@ stopButton.addEventListener("click", stopTimer);
 //                 };
 
 var Questions = [
+    //first question
     {
         text:"Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
         Answers:[
@@ -198,7 +199,97 @@ var Questions = [
                     {text:"Edith Clarke",truthiness:false}, 
                     {text:"Sister Mary Kenneth Keller",truthiness:false}
                 ]
-   }
+   },
+   //second question
+   {
+    text:"What famous whistle-blower who shared information on the collection of data in the U.S. related to the Patriot Act currently resides in Russia?", 
+    Answers:[
+                {text:"Aaron Swartz",truthiness:false}, //Questions[1].Answers[0].text;
+                {text:"Julian Assange",truthiness:false}, 
+                {text:"Edward Snowden",truthiness:true}, 
+                {text:"Angela Merkal",truthiness:false}
+            ]
+},
+//third question
+{
+    text:"What was the first functioning programming languages designed to communicate instructions to a computer and written in the early 1950s by John Backus?", 
+    Answers:[
+                {text:"Auto Code",truthiness:false}, //Questions[2].Answers[0].text;  A. Short Code wrong: auto code, machine code, assembly code
+                {text:"Short Code",truthiness:true}, 
+                {text:"Machine Code",truthiness:false}, 
+                {text:"Assembly Code",truthiness:false}
+            ]
+},
+//fourth question
+{
+    text:"When was the first computer game invented?", 
+    Answers:[
+                {text:"1955",truthiness:false}, //Questions[3].Answers[0].text;
+                {text:"1975",truthiness:false}, 
+                {text:"1924",truthiness:false}, 
+                {text:"1961",truthiness:true}
+            ]
+},
+ //fifth question
+ {
+    text:"Why did Guido van Rossum name his language 'Python?", 
+    Answers:[
+                {text:"He was reading 'Monty Pythons Flying Circis'",truthiness:true}, //Questions[4].Answers[0].text;
+                {text:"He was a snake enthusiast and that was his favorite kind of snake",truthiness:false}, 
+                {text:"He thought his language sucked and named it afte the villian in Karate Kid",truthiness:false}, 
+                {text:"It was a family name and he wanted to name it after his dead uncle",truthiness:false}
+            ]
+},
+//sixth question
+{
+    text:"What coding language took the US to the moon?", 
+    Answers:[
+                {text:"assembly language and in an interpretive language, in reverse Polish",truthiness:true}, //Questions[5].Answers[0].text;
+                {text:"short code, in reverse ebonics",truthiness:false}, 
+                {text:"COBAL",truthiness:false}, 
+                {text:"Binary Notation",truthiness:false}
+            ]
+},
+//seventh question
+{
+    text:"What language became popular due to its early integration with Netscape Navigator?", 
+    Answers:[
+                {text:"C++",truthiness:false}, //Questions[6].Answers[0].text;
+                {text:"Https",truthiness:false}, 
+                {text:"Java",truthiness:false}, 
+                {text:"Javascript",truthiness:true}
+            ]
+},
+//eigth question
+{
+    text:"What type of software  has  source code is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose?", 
+    Answers:[
+                {text:"MS DOS",truthiness:true}, //Questions[7].Answers[0].text;
+                {text:"Release source",truthiness:false}, 
+                {text:"Opensource",truthiness:true}, 
+                {text:"Open licence",truthiness:false}
+            ]
+},
+//ninth question
+{
+    text:"What general-purpose language, invented by Bjarne Stroutstrup in 1985 and was designed with a bias toward system programming and embedded, resource-constrained software and large systems, with performance, efficiency, and flexibility of use as its design highlights?", 
+    Answers:[
+                {text:"C++",truthiness:true}, //Questions[8].Answers[0].text;
+                {text:"COBAL",truthiness:false}, 
+                {text:"Python",truthiness:false}, 
+                {text:"C#",truthiness:false}
+            ]
+},
+//tenth question
+{
+    text:"What machine was the first operating system, GMOS created for? A. IBM's 701", 
+    Answers:[
+                {text:"GM's Analytical Mathematic Chromatic x2",truthiness:false}, //Questions[9].Answers[0].text;
+                {text:"IBM's 702",truthiness:false}, 
+                {text:"IMB's 701",truthiness:true}, 
+                {text:"Macy's Exothermic Monster",truthiness:false}
+            ]
+} 
 ]
 
 
@@ -229,27 +320,37 @@ var answerButton = [document.querySelector("#q"),
                     document.querySelector("#t")
 ];
 
-
-activeAnswer = 0;
+//variables to keep track of which question we're on and which answer the user selects
+var activeQuest = 0;
+var activeAnswer = 0;
 //when button is pushed
 function selectAnswer01() { 
     activeAnswer = 0;
-    checkTruth();}
+    checkTruth();
+}
+
 function selectAnswer02() { 
     activeAnswer = 1;
-    checkTruth();}
+    checkTruth();
+}
+
 function selectAnswer03() { 
     activeAnswer = 2;
-    checkTruth();}
+    checkTruth();
+}
+
 function selectAnswer04() { 
     activeAnswer = 3;
-    checkTruth();}
+    checkTruth();
+}
 
 //check truth and load next question
 function checkTruth(){
     console.log("answer button working");
     console.log(Questions[activeQuest].Answers[activeAnswer].truthiness); //to see if answer is true or false
     //Questions[activeQuest]  to see what question we are on .Answers[activeAnswer] to see what answer 
+    // having validated the user answer choice we now move to the next activeQuest
+    activeQuest += 1;
     PreguntesLoops();// loads the next question
 }
 
@@ -288,15 +389,13 @@ function start(){
 
 startQuiz.addEventListener("click", start);
 //questions loop
-var activeQuest = 0;
 function PreguntesLoops(){
-    // if(activeQuest = Questions.length){activeQuest=0} //commented out for now - will be used to handle resets
+     if( 10<= Questions.length){activeQuest=0} //commented out for now - will be used to handle resets
     questionText.textContent = Questions[activeQuest].text;
     //answers loop display
     for(i=0; i < Questions[activeQuest].Answers.length; i++){             
         AnswerText[i].textContent = Questions[activeQuest].Answers[i].text;
     }
-    activeQuest += 1;
 }
 
 
