@@ -30,7 +30,7 @@ var statusSpan = document.querySelector("#status");
 var statusToggle = document.querySelector("#status-toggle");
 var playButton = document.querySelector("#play");
 var pauseButton = document.querySelector("#pause");
-var stopButton = document.querySelector("#stop");
+// var stopButton = document.querySelector("#stop");
 var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 var workMinutesInput = document.querySelector("#work-minutes");
@@ -83,7 +83,7 @@ function setTime() {
     minutes = restMinutesInput.value.trim();
   }
   clearInterval(interval);
-  totalSeconds = minutes * 60;
+  totalSeconds = 75;
 }
 // This function does 2 things. displays the time and checks to see if time is up.
 function renderTime() {
@@ -91,7 +91,7 @@ function renderTime() {
   minutesDisplay.textContent = getFormattedMinutes();
   secondsDisplay.textContent = getFormattedSeconds();
  // ..and then checks to see if the time has run out
-  if (secondsElapsed >= totalSeconds) {
+  if (secondsElapsed >= 75) {
    
     stopTimer();
   }
@@ -110,7 +110,6 @@ function startTimer() {
         renderTime();
       }, 1000);
   } else {
-    alert("Minutes of work/rest must be greater than 0.")
   }
 }
 /* This function stops the setInterval() set in startTimer but does not
@@ -124,20 +123,20 @@ function pauseTimer() {
 /* This function stops the interval and also resets secondsElapsed
    and calls "setTime()" which effectively reset the timer
    to the input selections workMinutesInput.value and restMinutesInput.value */
-// function stopTimer() {
-//   secondsElapsed = 0;
-//   setTime();
-//   renderTime();
-// }
+function stopTimer() {
+  secondsElapsed = 0;
+  setTime();
+  renderTime();
+}
 /* Our timer is fancy enough to handle 2 different settings at once this toggle
    function basically just specifies which of our 2 timer settings to use. */
 function toggleStatus(event) {
   var checked = event.target.checked;
-  if (checked) {
-    status = "Working";
-  } else {
-    status = "Resting";
-  }
+//   if (checked) {
+//     status = "Working";
+//   } else {
+//     status = "Resting";
+//   }
   statusSpan.textContent = status;
   secondsElapsed = 0;
   setTime();
@@ -346,18 +345,45 @@ function selectAnswer04() {
 // getting my finished card for checkTruth function
 var endQuiz = document.getElementById("end");
 //check trenduth and load next question
+score = 0;
+
 function checkTruth(){
     console.log("answer button working");
+
+    if(Questions[activeQuest].Answers[activeAnswer].truthiness==true){
+     score= score + 1;
+    }else {
+        secondsElapsed= secondsElapsed+5;
+        console.log(secondsElapsed);
+    }
     console.log(Questions[activeQuest].Answers[activeAnswer].truthiness); //to see if answer is true or false
     //Questions[activeQuest]  to see what question we are on .Answers[activeAnswer] to see what answer 
     // having validated the user answer choice we now move to the next activeQuest
     activeQuest += 1;
-    //to break chain after last 
-    if (activeQuest == Questions.length) {  
+    //to break chain after last question
+    if (activeQuest == Questions.length || secondsElapsed >= 75) {  
         displayStart.style.display="none";
-        endQuiz.style.display="inline";} 
+        endQuiz.style.display="inline"; 
+        hideTimer.style.display ="none";// stopTimer();
+        console.log(75-secondsElapsed);
+        countScore();
+    }; 
+    var finalScore = score + (75-secondsElapsed);
+        console.log(finalScore);
+        
+
     PreguntesLoops();// loads the next question
 }
+
+score = 0;
+
+var againQuiz = document.getElementById("end")
+function countScore(){
+    var initials =prompt("Enter you initials to get high score!");
+    if (initials != null) {document.getElementById("h6".innerHTML = "Your Score is: " + (score +(75-secondsElapsed)))} else{
+        HighScores.style.display="inline";
+    }
+};
 
 answerButton[0].addEventListener("click", selectAnswer01);
 answerButton[1].addEventListener("click", selectAnswer02);
@@ -374,12 +400,17 @@ var AnswerText = [ document.querySelector("#q"),// AnswerText[0]
                     document.querySelector("#t")
                 ];
 
+                //edits the questions
 var questionText = document.querySelector("h4");
+//removes the timer
+var hideTimer =document.getElementById("hand");
 
-
+//edits the cards
 var displayStart = document.getElementById("form","question"); //form for questions in html
 var startQuiz = document.getElementById("start"); //the start card
-
+var againQuiz = document.getElementById("end")
+//hide the things!
+hideTimer.style.display ="none";
 displayStart.style.display ="none";
 endQuiz.style.display="none"
 //main start button
@@ -387,12 +418,16 @@ endQuiz.style.display="none"
 function start(){
     displayStart.style.display="block";
     startQuiz.style.display="none";
+    hideTimer.style.display ="inline";
     startTimer();
     PreguntesLoops();
+    score =0;
+    endQuiz.style.display="none";
+
     
 }
 
-
+againQuiz.addEventListener("click", start); 
 startQuiz.addEventListener("click", start);
 //questions loop
 function PreguntesLoops(){
