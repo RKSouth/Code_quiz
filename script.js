@@ -372,7 +372,7 @@ HighScores.style.display="none";
 
 //am array to store all the sessions scores
 var scoreArray =[];
-var dd = document.createElement("dd");
+var li = document.createElement("li");
 
 
 //the most important function;  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -409,10 +409,10 @@ submit.addEventListener("click", function() {
 
   
         // creating a list score for html
-    dd.textContent = key+": "+ finalScore;
-    dd.setAttribute("data-index", key);
-    console.log(dd.textContent);
-    lsOutput.appendChild(dd);
+    li.textContent = key+": "+ finalScore;
+    li.setAttribute("data-index", key);
+    console.log(li.textContent);
+    lsOutput.appendChild(li);
 
     //cheking high score
     toLoad = {name:initialInput.value, value:finalScore};

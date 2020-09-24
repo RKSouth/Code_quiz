@@ -92,61 +92,52 @@ __3. A High Score__
 
 _Why?_
 
-    What's the point in having a competition with no highscore? 
+What's the point in having a competition with no highscore? 
 
 
 
 _What?/How?_
 
-  There were two ways I knew to do this; either use local.storage to hold the scores in the browser and then compare them (so that they last in the game) or store them in an array. I chose an array because the code was simpler, smaller and did the same job of storing that a local would. 
+There were two ways I knew to do this; either use local.storage to hold the scores in the browser and then compare them (so that they last in the game) or store them in an array. I chose an array because the code was simpler, smaller and did the same job of storing that a local would. 
 
-  '   toLoad = {name:initialInput.value, value:finalScore};
-    console.log("ToLoad: " + toLoad);
+'   toLoad = {name:initialInput.value, value:finalScore}; ' 
+'    console.log("ToLoad: " + toLoad); ' 
 
-    var championName;    
-    championScore = 0;
-    scoreArray.push(toLoad);
-    for (i=0; i<scoreArray.length; i++){
-        if (scoreArray[i].value >= championScore){
-            championScore=scoreArray[i].value;
-            championName=scoreArray[i].name;
-        };
-
-    console.log("champion score: " + championScore);
-        // creating champion score
-        championship.textContent = championName + ": "+ championScore;
-        championship.setAttribute("data-index", key);
-        console.log(championship.textContent); '
-
-
-    As you can see above, my scoreArray[] takes the variable toLoad which contains the name of the contestant and their final score.It then checks the scores of all the previous additions and checks for the highest score. It's not very complicated but it does run most of the entire last card on the page (aside from the HTML).
+'     var championName;    ' 
+'     championScore = 0; ' 
+'     scoreArray.push(toLoad); ' 
+'     for (i=0; i<scoreArray.length; i++){ ' 
+'         if (scoreArray[i].value >= championScore){ ' 
+'             championScore=scoreArray[i].value; ' 
+'             championName=scoreArray[i].name; ' 
+'         }; ' 
+' 
+'     console.log("champion score: " + championScore); ' 
+'         // creating champion score
+'         championship.textContent = championName + ": "+ championScore; ' 
+'         championship.setAttribute("data-index", key); ' 
+'         console.log(championship.textContent); '
 
 
+As you can see above, my scoreArray[] takes the variable toLoad which contains the name of the contestant and their final score.It then checks the scores of all the previous additions and checks for the highest score. It's not very complicated but it does run most of the entire last card on the page (aside from the HTML).
+
+__3. Look and Feel__
 
    
-    
-__5. Other/Potentional Complaints__
+![Earlier Build](Untitled01.png)
 
-* Ideas for future builds
+Above is an earlier build. I originally had some CSS style on the sheet, however I wanted to make my design more elevated and I didn't feel like the styling fit the subject matter. So, I chose to use bootstrap instead.
 
+![Final Build](FinishedProduct02.png)
 
+Above is the what questions looked like with the final style. The tiles is never moved and the timer was placed so it would be easily visible on the left hand top side of the questions. Your eyes don't have to wander too far if you are concerned about your time.
 
-* I used prompts instead of confirm statements
+![Final Build](FinishedProduct03.png)
 
-_Why?_
-
-Mainly because prompts were specifically requested. However, using a yes or no might be simpler in the long run. 
-
-* There are not that many commits
-
-_Why?_
-
-I did most of the preliminary figuring out of my random generator and my button on paper and with my study group. There was an extensive amount of pseudocode/whiteboarding before I began typeing things in. I used my notes from the previous week to piece things together and think about how they would work or wouldn't work. I suppose I could add pictures of my notes but I am horribly ashamed of how messy they might look, and seeing as they were just for me -there is a huge chance that if you could them, you wouldn't be able to make sense of them. 
-
-  
+Above is an image of the high score screen. This is what pops out when you have reached the end of your quiz and have submitted your name. If someone has taken the lest before you, then their name may also show up. You can compare where you are with the highest score and figure out who to beat. 
 
 ## Usage
-### This is meant for employees who need to generate secure passwords to be used to access sensitive data.
+### This is to help students learn a difficult subject matter but also very interesting, the history of coding.
 
 ## Author 
 Rachael Kelm-Southworth
@@ -157,7 +148,7 @@ Rachael Kelm-Southworth
 
  ## Credits
 
-I would like to thank Kerwin, Manuel, Roger, Jerome and all my classmates for helping me understand this subject matter and anyone that contributed to make the base code.
+I would like to thank Kerwin, Manuel, Roger, Jerome and all my classmates for helping me understand this subject matter.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
