@@ -92,7 +92,7 @@ function renderTime() {
   secondsDisplay.textContent = getFormattedSeconds();
  // ..and then checks to see if the time has run out
   if (secondsElapsed >= 75) {
-   
+    checkTruth();
     stopTimer();
   }
 }
@@ -369,68 +369,83 @@ var HighScores = document.getElementById("HighScores");
 //hiding the high scores element until it's time
 HighScores.style.display="none";
 
+
+//am array to store all the sessions scores
+var scoreArray =[];
+var li = document.createElement("li");
+
+
+//the most important function;  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function timesUp() {
 
-
+//tabulating final score
    finalScore =score + (75-secondsElapsed);
+//showing the high score card
+
     HighScores.style.display="inline";
     console.log(finalScore);
 
     //getting the input field
+
     var submit =document.getElementById("submit");
     // initials = document.getElementById("initialInput");
 
     const initialInput = document.getElementById("initialInput");
-    
     const lsOutput = document.getElementById("lsOutput");
+    const championship = document.getElementById("championship");
     //when the submit button is clicked on the high scores
     //WHEN i hit submit I don't want it to go to start button automatically, I want it to go to high scores
-submit.addEventListener("click", function(event) {
+submit.addEventListener("click", function() {
 
     //moving/hiding cards
  
     endQuiz.style.display="inline";
     HighScores.style.display="none";
+    //type in your value
     const key = initialInput.value;
     const value = finalScore;
-    console.log(key);
-    console.log(value);
+    console.log("name" + key);
+    console.log("score" + value);
 
   
-        // creating a list
-    var li = document.createElement("li");
+        // creating a list score for html
     li.textContent = key+": "+ finalScore;
     li.setAttribute("data-index", key);
     console.log(li.textContent);
     lsOutput.appendChild(li);
 
-    toLoad = {name:key, value:value}
-    var scoreArray =[];
-    
-    scoreArray.push(toLoad);
-    championScore = Math.max(scoreArray);
-    console.log(championScore);
+    //cheking high score
+    toLoad = {name:initialInput.value, value:finalScore};
+    console.log("ToLoad: " + toLoad);
 
-    // finalScore.append(scoreArray);
-    // championScore = Math.max(scoreArray);
-    // console.log(championScore);
-      
+    var championName;    
+    championScore = 0;
+    scoreArray.push(toLoad);
+    for (i=0; i<scoreArray.length; i++){
+        if (scoreArray[i].value >= championScore){
+            championScore=scoreArray[i].value;
+            championName=scoreArray[i].name;
+        };
+
+    console.log("champion score: " + championScore);
+        // creating champion score
+        championship.textContent = championName + ": "+ championScore;
+        championship.setAttribute("data-index", key);
+        console.log(championship.textContent);
+    
+
+    };
+    console.log("scoreArray: " + scoreArray[0]);
+   
      });
     }
 
 
-// function initials () { 
-//     var initials =document.getElementById("scoreInput");
-//     initials.addEventListener("click", countScore);
-// if (initials != null) {document.getElementById("scoreInput").textContent= "Your Score is: " + (score +(75-secondsElapsed)); } else{
-    
-     
-// }};
 
 function countScore(){
     endQuiz.style.display="inline";
 };
-
+//go answers go! buttons!
 answerButton[0].addEventListener("click", selectAnswer01);
 answerButton[1].addEventListener("click", selectAnswer02);
 answerButton[2].addEventListener("click", selectAnswer03);
@@ -459,6 +474,8 @@ var againQuiz = document.getElementById("end")
 hideTimer.style.display ="none";
 displayStart.style.display ="none";
 endQuiz.style.display="none"
+
+
 //main start button
 //move later?
 function start(){
@@ -478,10 +495,10 @@ againQuiz.addEventListener("click", start);
 startQuiz.addEventListener("click", start);
 //questions loop
 function PreguntesLoops(){
-    if(activeQuest == Questions.length){activeQuest=0} //commented out for now - will be used to handle resets
+    if(activeQuest == Questions.length){activeQuest=0} //handles resets
     questionText.textContent = Questions[activeQuest].text;
     //answers loop display
-    for(i=0; i < Questions[activeQuest].Answers.length; i++){             
+    for(i=0; i < Questions[activeQuest].Answers.length; i++){     //compares answers to questions         
         AnswerText[i].textContent = Questions[activeQuest].Answers[i].text;
     }
 }
