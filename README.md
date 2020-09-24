@@ -77,7 +77,7 @@ __2. A Timer__
 
 _Why?_
 
-    Because some people want to rapidly remember and recall subject matter. I am not one of those people, however I do understand the need to put a little pressure on yourself to learn something and learn it by heart. The timer adds a bit of competition to the quiz which, in turn, makes it more fun.
+Because some people want to rapidly remember and recall subject matter. I am not one of those people, however I do understand the need to put a little pressure on yourself to learn something and learn it by heart. The timer adds a bit of competition to the quiz which, in turn, makes it more fun.
 
 
 _What?/How?_
