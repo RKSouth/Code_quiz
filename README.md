@@ -128,11 +128,11 @@ __3. Look and Feel__
 
 Above is an earlier build. I originally had some CSS style on the sheet, however I wanted to make my design more elevated and I didn't feel like the styling fit the subject matter. So, I chose to use bootstrap instead.
 
-![Final Build](FinishedProduct02.png)
+![Final Build](Assets/FinishedProduct02.png)
 
 Above is the what questions looked like with the final style. The tiles is never moved and the timer was placed so it would be easily visible on the left hand top side of the questions. Your eyes don't have to wander too far if you are concerned about your time.
 
-![Final Build](FinishedProduct03.png)
+![Final Build](Assets/FinishedProduct03.png)
 
 Above is an image of the high score screen. This is what pops out when you have reached the end of your quiz and have submitted your name. If someone has taken the lest before you, then their name may also show up. You can compare where you are with the highest score and figure out who to beat. 
 
