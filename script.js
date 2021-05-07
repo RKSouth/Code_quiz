@@ -178,7 +178,7 @@ pauseButton.addEventListener("click", pauseTimer);
 var Questions = [
     //first question
     {
-        text:"1. Who, due to her work in building the Analytical Enginge in the 1800's is considered to be the 1st programer?", 
+        text:"1. Who, due to her work in building the Analytical Engine in the 1800's is considered to be the 1st programer?", 
         Answers:[
                     {text:"Ada Lovelace",truthiness:true}, //Questions[0].Answers[0].text;
                     {text:"Grace Hopper",truthiness:false}, 
@@ -435,7 +435,7 @@ submit.addEventListener("click", function() {
     
 
     };
-    console.log("scoreArray: " + scoreArray[0]);
+    console.log("scoreArray: " + scoreArray);
    
      });
     }

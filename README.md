@@ -31,11 +31,11 @@ You are required to submit the following for review:
 
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project. -->
 
-#  JavaScript: Password Generator
+#  JavaScript: Code Quiz
 
 ### The goal of this project is to make a timed quiz on Javascript fundamentals that stores high scores to help learn about coding. 
 
-![Password Generator](Assets/FinishedProduct.png)
+![Code Quiz](Assets/FinishedProduct.png)
 
 ## Table of Contents
 * [Technologies Used](Technologies_Used)
